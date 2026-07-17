@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-cyan: #0a8494;
+  --color-brand-magenta: #be123c;
+  --color-brand-yellow: #a16207;
+  --color-brand-key: #F4F4F1;
+  --color-brand-dark: #E9E9E6;
+  --color-brand-dark-card: #FFFFFF;
+  --color-brand-slate: #5E5E5A;
+  --color-brand-charcoal: #1A1A1A;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, rgba(26, 26, 26, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(26, 26, 26, 0.04) 1px, transparent 1px);
+  }
+  
+  .text-gradient-cmyk {
+    background: linear-gradient(135deg, #0a8494 0%, #be123c 50%, #a16207 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .border-gradient-cmyk {
+    border-image: linear-gradient(135deg, #0a8494, #be123c, #a16207) 1;
+  }
+
+  .text-stroke-editorial {
+    -webkit-text-stroke: 1px #1A1A1A;
+    color: transparent;
+  }
+  
+  .edge-border {
+    border: 1px solid rgba(26, 26, 26, 0.1);
+  }
+  
+  .service-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    border: 1px solid #1A1A1A;
+    border-radius: 100px;
+    display: inline-block;
+    color: #1A1A1A;
+    background-color: transparent;
+    font-weight: 500;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: #F4F4F1;
+  color: #1A1A1A;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #F4F4F1;
+  color: #1A1A1A;
+}
+
+/* Force serif playfair to all display titles */
+h1, h2, h3, h4, .font-display {
+  font-family: "Playfair Display", serif !important;
+}
+
+/* Custom scrollbar matching paper aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F4F1;
+}
+::-webkit-scrollbar-thumb {
+  background: #D5D5D1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B5B5B1;
+}
